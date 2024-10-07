@@ -1,3 +1,3 @@
 # Portfolio Website
 
-Visit **kapsaquarius.github.io**
+Visit **vednaik.github.io**
