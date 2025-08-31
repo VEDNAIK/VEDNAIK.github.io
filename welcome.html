@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Welcome - Ved Naik</title>
+  
+  <!-- Favicons -->
+  <link href="assets/img/vn-high-resolution-logo.png" rel="icon">
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      font-family: 'Poppins', sans-serif;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+    
+    .welcome-container {
+      text-align: center;
+      color: white;
+      z-index: 10;
+    }
+    
+    .typewriter {
+      font-size: 4rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+      min-height: 5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .cursor {
+      border-right: 3px solid white;
+      animation: blink 1s infinite;
+      margin-left: 5px;
+    }
+    
+    @keyframes blink {
+      0%, 50% { border-color: transparent; }
+      51%, 100% { border-color: white; }
+    }
+    
+    .subtitle {
+      font-size: 1.5rem;
+      margin-bottom: 3rem;
+      opacity: 0;
+      animation: fadeIn 2s ease-in-out 3s forwards;
+    }
+    
+    .enter-button {
+      background: rgba(255, 255, 255, 0.2);
+      border: 2px solid white;
+      color: white;
+      padding: 15px 40px;
+      font-size: 1.2rem;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+      opacity: 0;
+      animation: fadeIn 2s ease-in-out 4s forwards;
+    }
+    
+    .enter-button:hover {
+      background: white;
+      color: #667eea;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .floating-particles {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+    
+    .particle {
+      position: absolute;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      animation: float 6s ease-in-out infinite;
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(180deg); }
+    }
+    
+    @media (max-width: 768px) {
+      .typewriter {
+        font-size: 2.5rem;
+        min-height: 3rem;
+      }
+      
+      .subtitle {
+        font-size: 1.2rem;
+      }
+      
+      .enter-button {
+        padding: 12px 30px;
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="floating-particles" id="particles"></div>
+  
+  <div class="welcome-container">
+    <div class="typewriter">
+      <span id="typewriter-text"></span>
+      <span class="cursor"></span>
+    </div>
+    <div class="subtitle">Software Engineer & Machine Learning Engineer</div>
+    <a href="index.html" class="enter-button">Enter Portfolio</a>
+  </div>
+
+  <script>
+    // Typewriter effect
+    const text = "Ved Naik";
+    const typewriterElement = document.getElementById('typewriter-text');
+    let i = 0;
+    
+    function typeWriter() {
+      if (i < text.length) {
+        typewriterElement.innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, 150);
+      }
+    }
+    
+    // Start typewriter effect after a short delay
+    setTimeout(typeWriter, 500);
+    
+    // Create floating particles
+    function createParticles() {
+      const particlesContainer = document.getElementById('particles');
+      const particleCount = 20;
+      
+      for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        
+        // Random size between 5 and 20px
+        const size = Math.random() * 15 + 5;
+        particle.style.width = size + 'px';
+        particle.style.height = size + 'px';
+        
+        // Random position
+        particle.style.left = Math.random() * 100 + '%';
+        particle.style.top = Math.random() * 100 + '%';
+        
+        // Random animation delay
+        particle.style.animationDelay = Math.random() * 6 + 's';
+        
+        particlesContainer.appendChild(particle);
+      }
+    }
+    
+    // Initialize particles
+    createParticles();
+  </script>
+</body>
+</html>
