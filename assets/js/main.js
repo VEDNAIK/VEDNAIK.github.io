@@ -27,7 +27,7 @@
       var target = $(this.hash);
       if (target.length) {
 
-        var scrollto = target.offset().top;
+        var scrollto = target.offset().top - 100; // Account for fixed header height
 
         $('html, body').animate({
           scrollTop: scrollto
@@ -67,7 +67,7 @@
   var main_nav = $('.nav-menu, #mobile-nav');
 
   $(window).on('scroll', function() {
-    var cur_pos = $(this).scrollTop() + 10;
+    var cur_pos = $(this).scrollTop() + 110; // Account for header height + some buffer
 
     nav_sections.each(function() {
       var top = $(this).offset().top,
